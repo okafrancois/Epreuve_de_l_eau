@@ -1,4 +1,4 @@
-function isIncludeInString(args) {
+function getStringIndex(args) {
   const errorMessage = checkValidity(args);
 
   if (errorMessage) {
@@ -7,24 +7,24 @@ function isIncludeInString(args) {
 
   const [baseString, toSearchString] = args;
 
-  return isIncluded(baseString.toLowerCase(), toSearchString.toLowerCase());
+  return getFirstIndex(baseString.toLowerCase(), toSearchString.toLowerCase());
 }
 
-function isIncluded(baseString, toSearchString) {
+function getFirstIndex(baseString, toSearchString) {
   let matchIndex = 0;
 
-  for (const element of baseString) {
-    if (element === toSearchString[matchIndex]) {
+  for (let i = 0; i < baseString.length; i++) {
+    if (baseString[i] === toSearchString[matchIndex]) {
       matchIndex++;
       if (matchIndex === toSearchString.length) {
-        return true;
+        return i - (toSearchString.length - 1);
       }
     } else {
-      matchIndex = 0;
+      matchIndex = 0
     }
   }
 
-  return false;
+  return -1;
 }
 
 function checkValidity(args) {
@@ -38,4 +38,4 @@ function getNodeProcessArgs() {
   return process.argv.slice(2)
 }
 
-console.log(isIncludeInString(getNodeProcessArgs()))
+console.log(getStringIndex(getNodeProcessArgs()))

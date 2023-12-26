@@ -1,4 +1,4 @@
-function getToEvenUppercase(args) {
+function getToCamelCase(args) {
   const errorMessage = checkValidity(args);
 
   if (errorMessage) {
@@ -6,17 +6,24 @@ function getToEvenUppercase(args) {
   }
 
   const [argText] = args;
-  let output = ""
+  const words = argText.split(" ")
+  const formattedWords = []
 
-  for (let i = 0; i < argText.length; i++) {
-    output += isEven(i) ? argText[i].toUpperCase() : argText[i].toLowerCase()
-  }
+  words.forEach(word => {
+    formattedWords.push(formatToCamelCase(word))
+  })
 
-  return output
+  return formattedWords.join(" ")
 }
 
-function isEven(value) {
-  return value % 2 === 0
+function formatToCamelCase(text) {
+  const wordLetters = text.split("")
+
+  const formattedWord = wordLetters.map((letter, index) => {
+    return index === 0 ? letter.toUpperCase() : letter.toLowerCase()
+  })
+
+  return formattedWord.join("")
 }
 
 function checkValidity(args) {
@@ -36,4 +43,4 @@ function getNodeProcessArgs() {
   return process.argv.slice(2)
 }
 
-console.log(getToEvenUppercase(getNodeProcessArgs()))
+console.log(getToCamelCase(getNodeProcessArgs()))
