@@ -35,16 +35,6 @@ function checkValidity(args) {
   return null
 }
 
-function containNumberOnly(args) {
-  for (const item of args) {
-    if (isNaN(Number(item))) {
-      return false
-    }
-  }
-
-  return true
-}
-
 function getNodeProcessArgs() {
   return process.argv.slice(2)
 }
