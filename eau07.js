@@ -18,7 +18,6 @@ function getToCamelCase(args) {
 
 function formatToCamelCase(text) {
   const wordLetters = text.split("")
-
   const formattedWord = wordLetters.map((letter, index) => {
     return index === 0 ? letter.toUpperCase() : letter.toLowerCase()
   })
@@ -31,9 +30,8 @@ function checkValidity(args) {
     return "Error: not enough or too much argument provided (expecting 1)"
   }
 
-  const alphabetLetterReg = /^[a-zA-Z ]+$/
-
-  if (!alphabetLetterReg.test(args[0])) {
+  const ALPHABET_REG = /^[a-zA-Z ]+$/
+  if (!ALPHABET_REG.test(args[0])) {
     return "Error: Invalid data provided (expecting A-Z, a-z characters only)"
   }
 

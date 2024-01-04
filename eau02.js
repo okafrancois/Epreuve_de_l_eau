@@ -7,8 +7,8 @@ function getReversedArgs(args) {
 
   const output = []
 
-  for (let i = args.length - 1; i >= 0; i--) {
-    output.push(args[i])
+  for (const element of args) {
+    output.unshift(element)
   }
 
   return output.join("\n")

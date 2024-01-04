@@ -16,6 +16,7 @@ function isIncluded(baseString, toSearchString) {
   for (const element of baseString) {
     if (element === toSearchString[matchIndex]) {
       matchIndex++;
+
       if (matchIndex === toSearchString.length) {
         return true;
       }

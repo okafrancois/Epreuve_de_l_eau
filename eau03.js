@@ -4,6 +4,7 @@ function getFibonacciFromIndex(args) {
   if (errorMessage) {
     return errorMessage
   }
+
   const endPoint = Number(args[0])
   const suite = generateFibonacciToIndex(endPoint)
 

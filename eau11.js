@@ -29,6 +29,7 @@ function getMinimumDiffBetweenItems(numbers) {
 
   return output
 }
+
 function getDifBetween(a, b) {
   return a > b ? a - b : b - a
 }
